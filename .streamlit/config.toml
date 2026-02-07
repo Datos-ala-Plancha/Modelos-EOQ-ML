@@ -1,0 +1,11 @@
+[theme]
+primaryColor = "#00FF41"
+backgroundColor = "#0D1117"
+secondaryBackgroundColor = "#161B22"
+textColor = "#00FF41"
+font = "monospace"
+
+[client]
+showSidebarNavigation = true
+
+
