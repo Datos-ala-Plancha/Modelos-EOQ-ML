@@ -1,5 +1,0 @@
-# Directorio de datos del proyecto
-# Usar subcarpetas para organizar:
-# - raw/: Datos originales sin procesar
-# - processed/: Datos transformados y limpios
-# - external/: Datos de fuentes externas

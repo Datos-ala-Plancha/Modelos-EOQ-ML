@@ -1,56 +1,27 @@
 # PYMESML - Aplicación de Investigación Operativa
 
-Aplicación web para gestión de inventarios y predicción de demanda, utilizando modelos EOQ (Economic Order Quantity) y Machine Learning.
+MVP con arquitectura de pipelines modulares.
 
-## Características
-
-### Gestión de Stock - Modelos EOQ
-- **EOQ Clásico**: Cantidad económica de pedido tradicional
-- **EOQ con Faltantes**: Modelo con backorders permitidos
-- **EOQ con Descuentos**: Análisis de descuentos por volumen
-- **EOQ de Producción**: Optimización para producción interna
-- **Clasificación ABC**: Identificación de productos críticos
-
-### Predicción de Demanda
-- Generación de series temporales sintéticas
-- Modelos de Machine Learning: Regresión Lineal, Ridge, Random Forest, Gradient Boosting
-- Métricas de evaluación: R², RMSE, MAE, MSE
-
-### Análisis de Datos
-- Carga de datasets CSV
-- Estadísticas descriptivas
-- Visualizaciones: histogramas, boxplots, dispersión, series temporales
-- Matriz de correlación
-
-## Estructura del Proyecto
+## Estructura
 
 ```
 PYMESML/
-├── app/                # Aplicación Streamlit
-├── src/
-│   └── models/         # Modelos y lógica de negocio
-│       ├── gestion_stock.py
-│       └── prediccion.py
-├── tests/             # Pruebas unitarias
-├── docs/              # Documentación
-├── .streamlit/        # Configuración (tema oscuro)
-├── requirements.txt   # Dependencias
+├── app/app.py              # Aplicación Streamlit
+├── src/pipelines/          # Pipelines modulares
+│   ├── business.py        # Modelos EOQ
+│   └── ml.py             # ML Pipeline
+├── .streamlit/config.toml  # Tema oscuro
+├── requirements.txt
 └── README.md
 ```
 
 ## Instalación
 
 ```bash
-# Clonar el repositorio
 git clone https://github.com/Kerbero05/PYMESML.git
 cd PYMESML
-
-# Crear entorno virtual
 python -m venv venv
-.\venv\Scripts\activate  # Windows
-# source venv/bin/activate  # Linux/Mac
-
-# Instalar dependencias
+.\venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
@@ -60,20 +31,20 @@ pip install -r requirements.txt
 streamlit run app/app.py
 ```
 
-La aplicación se abrirá en http://localhost:8501
+## Pipelines
 
-## Tecnologías
+```python
+from src.pipelines.business import GestorStockPipeline
+from src.pipelines.ml import MLPipeline, PredictorDemandaPipeline
 
-- **Streamlit**: Interfaz web interactiva
-- **NumPy/Pandas**: Manipulación de datos
-- **Scikit-learn**: Machine Learning
-- **Plotly/Matplotlib**: Visualizaciones
-- **EOQ Models**: Investigación Operativa
+# EOQ
+r = GestorStockPipeline.eoq_clasico(D=1000, C1=2.5, C3=10)
 
-## Autor
-
-Desarrollado para PYMES (Pequeñas y Medianas Empresas)
+# ML
+pipe = MLPipeline("rf").entrenar(X, y)
+pred = pipe.predecir([100, 1])
+```
 
 ## Licencia
 
-MIT
+MIT - kerbero05
