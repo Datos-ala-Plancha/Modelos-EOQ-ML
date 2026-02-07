@@ -12,7 +12,7 @@ import plotly.express as px
 import sys
 import os
 
-sys.path.append(os.path.dirname(__file__))
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from src.pipelines.business import GestorStockPipeline
 from src.pipelines.ml import MLPipeline, PredictorDemandaPipeline
 
