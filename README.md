@@ -34,7 +34,8 @@ PYMESML/
 │   └── pipelines/          # Pipelines modulares
 │       ├── business.py      # Modelos EOQ
 │       └── ml.py           # ML Pipeline
-├── agent.py               # Agente conversacional CLI
+├── agent.py               # Agente CLI (IO)
+├── eda_agent.py           # Agente EDA
 ├── .streamlit/
 │   └── config.toml         # Tema oscuro
 ├── requirements.txt
@@ -83,6 +84,26 @@ python agent.py
 | `/predecir` | Entrenar modelo ML |
 | `/ayuda` | Mostrar ayuda |
 | `/salir` | Terminar |
+
+### Agente EDA (Análisis Exploratorio)
+```bash
+python eda_agent.py
+```
+
+| Comando | Descripción |
+|---------|-------------|
+| `/cargar` | Cargar dataset |
+| `/info` | Información del dataset |
+| `/head` | Primeras filas |
+| `/describe` | Estadísticas descriptivas |
+| `/nulos` | Valores faltantes |
+| `/correlacion` | Matriz de correlación |
+| `/outliers` | Detectar atípicos |
+| `/hist` | Histograma |
+| `/boxplot` | Boxplot |
+| `/scatter` | Gráfico dispersión |
+| `/resumen` | EDA completo |
+| `/ayuda` | Mostrar ayuda |
 
 ## API de Pipelines
 
