@@ -65,12 +65,12 @@ pip install -r requirements.txt
 streamlit run app/app.py
 ```
 
-### Agente Conversacional
+### Agente Conversacional CLI
 ```bash
 python agent.py
 ```
 
-El agente te permite interactuar mediante comandos:
+### Comandos del Agente
 
 | Comando | Descripción |
 |---------|-------------|
@@ -94,12 +94,12 @@ from src.pipelines.business import GestorStockPipeline
 # EOQ Clásico
 resultado = GestorStockPipeline.eoq_clasico(
     D=1000,          # Demanda anual
-    C1=2.5,          # Costo almacenamiento
-    C3=10,           # Costo ordenamiento
+    C1=2.5,         
+    C3 # Costo almacenamiento=10,           # Costo ordenamiento
     C4=5,            # Costo unitario (opcional)
-    lead=5            # Lead time días (opcional)
-)
-# Atributos: Q_optimo, costo_total, numero_pedidos, ciclo_dias, punto_reorden
+    lead=5           # Lead time días (opcional)
+os: Q_optimo, costo_total)
+# Atribut, numero_pedidos, ciclo_dias, punto_reorden
 
 # EOQ con Faltantes
 r = GestorStockPipeline.eoq_faltantes(D, C1, C2, C3)
@@ -152,6 +152,18 @@ movil = PredictorDemandaPipeline.movils(serie, ventana=7)
 
 # Descomponer serie
 tendencia, estacionalidad, residuo = PredictorDemandaPipeline.descomponer(serie)
+```
+
+## OpenCode Agent
+
+El agente conversacional puede ser invocado desde opencode:
+
+```python
+# Desde opencode, puedes usar:
+from agent import PYMESMLAgent
+
+agent = PYMESMLAgent()
+agent.ejecutar()
 ```
 
 ## Tecnologías
