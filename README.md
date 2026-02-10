@@ -34,6 +34,7 @@ PYMESML/
 │   └── pipelines/          # Pipelines modulares
 │       ├── business.py      # Modelos EOQ
 │       └── ml.py           # ML Pipeline
+├── agent.py               # Agente conversacional CLI
 ├── .streamlit/
 │   └── config.toml         # Tema oscuro
 ├── requirements.txt
@@ -59,9 +60,29 @@ pip install -r requirements.txt
 
 ## Uso
 
+### Aplicación Web
 ```bash
 streamlit run app/app.py
 ```
+
+### Agente Conversacional
+```bash
+python agent.py
+```
+
+El agente te permite interactuar mediante comandos:
+
+| Comando | Descripción |
+|---------|-------------|
+| `/eoq` | Calcular EOQ clásico |
+| `/eoq_faltantes` | EOQ con backorders |
+| `/eoq_descuentos` | EOQ con descuentos |
+| `/eoq_produccion` | EOQ de producción |
+| `/abc` | Clasificación ABC |
+| `/generar` | Generar datos sintéticos |
+| `/predecir` | Entrenar modelo ML |
+| `/ayuda` | Mostrar ayuda |
+| `/salir` | Terminar |
 
 ## API de Pipelines
 
